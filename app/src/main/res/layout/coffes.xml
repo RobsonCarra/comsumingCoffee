@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         app:cardElevation="2dp"
-        android:layout_margin="8dp">
-        
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -26,7 +30,6 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@mipmap/ic_launcher"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -36,55 +39,118 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="name"
-                    app:layout_constraintStart_toEndOf="@+id/image_coffe"
-                    app:layout_constraintTop_toTopOf="parent"></TextView>
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/name_coffee"
+                    app:layout_constraintStart_toEndOf="@+id/name_coffee"
+                    app:layout_constraintTop_toTopOf="@+id/name_coffee"></TextView>
 
                 <TextView
                     android:id="@+id/description"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="description"
-                    app:layout_constraintStart_toEndOf="@+id/image_coffe"
-                    app:layout_constraintTop_toBottomOf="@+id/name" />
-
-                <TextView
-                    android:id="@+id/intensity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="intensity"
-                    app:layout_constraintBottom_toBottomOf="@+id/description"
-                    app:layout_constraintStart_toEndOf="@+id/description"
-                    app:layout_constraintTop_toTopOf="@+id/description" />
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_coffe" />
 
                 <TextView
                     android:id="@+id/capsules"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="8dp"
                     android:text="capsules"
-                    app:layout_constraintStart_toEndOf="@+id/image_coffe"
-                    app:layout_constraintTop_toBottomOf="@+id/description" />
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toTopOf="@+id/quantity"
+                    app:layout_constraintStart_toEndOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
 
                 <TextView
                     android:id="@+id/quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
                     android:text="quantity"
-                    app:layout_constraintStart_toEndOf="@+id/capsules"
-                    app:layout_constraintTop_toBottomOf="@+id/intensity" />
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/quantity_name"
+                    app:layout_constraintStart_toEndOf="@+id/quantity_name"
+                    app:layout_constraintTop_toTopOf="@+id/quantity_name" />
 
                 <TextView
                     android:id="@+id/id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:text="id"
-                    app:layout_constraintStart_toEndOf="@+id/name"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/id_name"
+                    app:layout_constraintStart_toEndOf="@+id/id_name"
+                    app:layout_constraintTop_toTopOf="@+id/id_name" />
+
+                <TextView
+                    android:id="@+id/intensity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="intensity"
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/intensity_name"
+                    app:layout_constraintStart_toEndOf="@+id/intensity_name"
+                    app:layout_constraintTop_toBottomOf="@+id/quantity_name" />
+
+                <TextView
+                    android:id="@+id/name_coffee"
+                    style="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name:"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="@+id/id_name"
+                    app:layout_constraintTop_toBottomOf="@+id/id_name" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available capsules:"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="@+id/name_coffee"
+                    app:layout_constraintTop_toBottomOf="@+id/name_coffee" />
+
+                <TextView
+                    android:id="@+id/quantity_name"
+                    style="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="quantity:"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/intensity_name"
+                    style="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="intensity:"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="@+id/quantity_name"
+                    app:layout_constraintTop_toBottomOf="@+id/quantity_name" />
+
+                <TextView
+                    android:id="@+id/id_name"
+                    style="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="id:"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toEndOf="@+id/image_coffe"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -92,16 +158,6 @@
 
 
         </LinearLayout>
-
-
-
-
-
-
-
-
-
-
 
     </androidx.cardview.widget.CardView>
 

@@ -2,6 +2,7 @@ package br.com.alura.ceep.ui.consumindocoffee
 
 import android.os.Bundle
 import android.util.Log.d
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var MyAdapter: MyAdapter
+    private lateinit var myAdapter: MyAdapter
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     fun init() {
         recyclerView.hasFixedSize()
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MyAdapter
     }
 
     fun myData() {
@@ -43,10 +43,12 @@ class MainActivity : AppCompatActivity() {
                 call: Call<List<Coffee>>,
                 response: Response<List<Coffee>>
             ) {
-                val responseBody = response.body()!!
-                MyAdapter = MyAdapter(baseContext, responseBody)
-                MyAdapter.notifyDataSetChanged()
-                recyclerView.adapter = MyAdapter
+                response.body()?.let {
+                    Toast.makeText(this@MainActivity, it.toString(), Toast.LENGTH_SHORT).show()
+                    myAdapter = MyAdapter(baseContext, it)
+                    recyclerView.adapter = myAdapter
+                    myAdapter.notifyDataSetChanged()
+                }
             }
 
             override fun onFailure(call: Call<List<Coffee>>, t: Throwable) {
@@ -55,3 +57,5 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
+
